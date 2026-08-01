@@ -9,6 +9,8 @@ import pytesseract as pyt
 from tavily import TavilyClient
 import numpy as np
 import streamlit as st
+
+st.set_page_confi(layout = "wide")
 #==================STEP 2 ENV AND API KEYS
 st.title("Agentic PPT Generator")
 st.header("""User can generate, ppt, Images, and fetch latest news""")
@@ -39,7 +41,7 @@ elif all(ALL_API):
   response.content[-1]['text']
   
 else:
-st.sidebar.info("Try Valid API-keys")
+  st.sidebar.info("Try Valid API-keys")
 
 def search_latest_info(query):
   """This function helps to give latest search using tavily based on given user query related research or contents"""
@@ -102,7 +104,7 @@ tab1,tab2,tab3 = st.tabs(["Generate Image",
                           "Fetch News",
                           "Generate PPT"])
 user_input = st.text_area("Write prompt & click enter")
-if(user_input) & (leader_agent):
+if(user_input):
   with tab1:
     if st.button("Click to Generate Image"):
       with st.spinner("Running Agent"):
