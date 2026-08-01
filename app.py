@@ -29,7 +29,7 @@ elif all(ALL_API):
   st.success("API KEYS LOADED")
   options = ["gemini-3.5-flash-lite","gemini-3.5-flash",
              "gemini-2.5-flash-lite","gemini-2.5-flash"]
-selected_model = st.selectbox("Select-Model",options = options)
+  selected_model = st.selectbox("Select-Model",options = options)
 
   model = ChatGoogleGenerativeAI(
       model = 'gemini-3.5-flash-lite',
