@@ -148,4 +148,4 @@ with tab3:
             st.success("PPT downloaded successfully!!")
 
       except Exception as err:
-        st.error("Error code:",err)
+        st.error("rror code:",err)
