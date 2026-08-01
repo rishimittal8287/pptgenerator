@@ -37,8 +37,7 @@ elif all(ALL_API):
       model = 'gemini-3.5-flash-lite',
       google_api_key = GOOGLE_API_KEY
   )
-  response=model.invoke("hello buddy!")
-  response.content[-1]['text']
+
   
 else:
   st.sidebar.info("Try Valid API-keys")
