@@ -15,8 +15,8 @@ st.set_page_config(layout = "wide")
 st.title("Agentic PPT Generator")
 st.header("""User can generate, ppt, Images, and fetch latest news""")
 st.sidebar.title("Give API KEYS")
-GOOGLE_API_KEY = st.sidebar.text_input("AQ.Ab8RN6I1v3B4s08tuzjuHlOx1ttdXKTSsgWK4hRGJUtk2uIdbQ")
-TAVILY_API_KEY = st.sidebar.text_input("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")
+GOOGLE_API_KEY = st.sidebar.text_input("GOOGLE_API_KEY")
+TAVILY_API_KEY = st.sidebar.text_input("TAVILY_API_KEY")
 
 ALL_API = [GOOGLE_API_KEY,TAVILY_API_KEY]
 if not all(ALL_API):
