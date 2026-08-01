@@ -130,7 +130,7 @@ if(user_input):
               st.html(code, width="stretch",unsafe_allow_javascript=true)
             
             except Exception as err:
-            st.error("Error Code: ",err)
+              st.error("Error Code: ",err)
       with tab2:
         if st.button ("Click to Generate ppt", key = "PPT-Button"):
           with st.spinner("Running Agent"):
