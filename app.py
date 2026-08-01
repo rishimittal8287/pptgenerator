@@ -120,13 +120,13 @@ if(user_input):
         if st.button ("Fetch Latest News", key = "News-Button"):
           with st.spinner("Running Agent"):
             try:
-              prompt = """Give Latest News Related to given user query in Dynamic html,
-              output with cards Design Format. Strict HTML Output,
+              prompt = """Give Latest News Related to Given user Query in Dynamic html,
+              Output with cards Design Format. Strict HTML Output,
               No Any markdowns Response user Query: """ + user_input 
               response = leader_agent.invoke({'messages': [{'role': 'user',
-                                                            'content': prompt}]})
+                                                   'content': prompt}]})
               code = response['messages'][-1].content[-1]['text']
-              st.html(code, width="stretch",unsafe_allow_javascript=true)
+              st.html(code, width="stretch",unsafe_allow_javascript=True)
             
             except Exception as err:
               st.error("Error Code: ",err)
@@ -135,7 +135,7 @@ if(user_input):
           with st.spinner("Running Agent"):
             try:
               code = run_agent(leader_agent,user_input)
-              st.html(code, width="stretch",unsafe_allow_javascript=true)
+              st.html(code, width="stretch",unsafe_allow_javascript=True)
               if st.download_button(label = "DOWNLOAD PPT",
                                     data = code,
                                     file_name = 'ppt.html',
