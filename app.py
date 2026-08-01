@@ -116,32 +116,36 @@ if(user_input):
           st.error("error Code:",err)
         
       
-      with tab2:
-        if st.button ("Fetch Latest News", key = "News-Button"):
-          with st.spinner("Running Agent"):
-            try:
-              prompt = """Give Latest News Related to Given user Query in Dynamic html,
-              Output with cards Design Format. Strict HTML Output,
-              No Any markdowns Response user Query: """ + user_input 
-              response = leader_agent.invoke({'messages': [{'role': 'user',
-                                                   'content': prompt}]})
-              code = response['messages'][-1].content[-1]['text']
-              st.html(code, width="stretch",unsafe_allow_javascript=True)
-            
-            except Exception as err:
-              st.error("Error Code: ",err)
-      with tab2:
-        if st.button ("Click to Generate ppt", key = "PPT-Button"):
-          with st.spinner("Running Agent"):
-            try:
-              code = run_agent(leader_agent,user_input)
-              st.html(code, width="stretch",unsafe_allow_javascript=True)
-              if st.download_button(label = "DOWNLOAD PPT",
-                                    data = code,
-                                    file_name = 'ppt.html',
-                                    mime = 'text/html'):
-                  st.success("PPT DOWNLOADED SUCCESSFULLY!!")
-            except Exception as err:
-              st.error("Error code: ",err)
+with tab2:
+  if st.button("fetch latest news",key = "news-button"):
+    with st.spinner("running agent"):
+      try:
+        prompt = """give latest news related to given user query
+        in dynamic html , output with card design format.
+        Strict HTML Output, No Any markdowns Repsonse
+        User Query: """ + user_input
 
+        response = leader_agent.invoke({"messages": [{"role": "user",
+                                                              "content": prompt}]})
 
+        code = response["messages"][-1].content[-1]["text"]
+        st.html(code,width="stretch",unsafe_allow_javascript=True)
+
+      except Exception as err:
+        st.error("Error Code:", err)
+
+with tab3:
+  if st.button("click to generate PPT",key="PPT-Button"):
+    with st.spinner("running agent"):
+      try:
+        code = run_agent(leader_agent , user_input)
+        st.html(code,width='stretch',unsafe_allow_javascript=True)
+
+        if st.download_button(label = "DOWNLOAD PPT",
+                              data = code,
+                              file_name = 'ppt.html',
+                              mime = 'text/html'):
+            st.success("PPT downloaded successfully!!")
+
+      except Exception as err:
+        st.error("Error code:",err)
