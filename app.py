@@ -132,7 +132,7 @@ with tab2:
         st.html(code,width="stretch",unsafe_allow_javascript=True)
 
       except Exception as err:
-        st.error("Error Code:", err)
+        st.error("error Code:", err)
 
 with tab3:
   if st.button("click to generate PPT",key="PPT-Button"):
