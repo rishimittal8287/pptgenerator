@@ -10,7 +10,7 @@ from tavily import TavilyClient
 import numpy as np
 import streamlit as st
 
-st.set_page_confi(layout = "wide")
+st.set_page_config(layout = "wide")
 #==================STEP 2 ENV AND API KEYS
 st.title("Agentic PPT Generator")
 st.header("""User can generate, ppt, Images, and fetch latest news""")
@@ -94,7 +94,7 @@ if all(ALL_API):
     tools = [search_latest_info,
              #generate_image
              ])
-  leader_agent
+ # leader_agent
 else:
  st.info("Give API-keys first to load Agent")
 
